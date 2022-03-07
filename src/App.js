@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from 'react';
+import { Stage } from '@inlet/react-pixi';
 
 function App() {
+
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth
+  });
+
+  const handleResize = () => {
+    setDimensions({
+      height: window.innerHeight,
+      width: window.innerWidth
+    })
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+  });
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Stage width={dimensions.width} height={dimensions.height} >
+        
+      </Stage>
+    </>
+  )
 }
 
 export default App;
