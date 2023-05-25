@@ -22,9 +22,7 @@ function App() {
 
   return (
     <>
-      <Stage width={dimensions.width} height={dimensions.height} >
-        
-      </Stage>
+      <h2>Does this mic work</h2>
     </>
   )
 }
